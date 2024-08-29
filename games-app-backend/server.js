@@ -8,7 +8,7 @@ const gamesRouter = require('./routes/games'); // Ajusta la ruta según tu estru
 const app = express();
 
 // Configurar CORS
-app.use(cors({}));
+app.use(cors);
 
 // Configura Multer para manejar la carga de archivos
 const upload = multer({
