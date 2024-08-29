@@ -126,4 +126,19 @@ router.put('/:id/progress', (req, res) => {
   res.json(games[gameIndex]);
 });
 
+// favorite game
+router.put('/:id/favorite', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const { isFavorite } = req.body;
+
+  const gameIndex = games.findIndex(game => game.id === id);
+  if (gameIndex === -1) {
+    return res.status(404).json({ message: 'Game not found' });
+  }
+
+  games[gameIndex].isFavorite = isFavorite;
+  res.json(games[gameIndex]);
+});
+
+
 module.exports = router;
