@@ -39,6 +39,6 @@ app.use('/api/games', gamesRouter);
 
 // Configura el puerto y otros middlewares según sea necesario
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
