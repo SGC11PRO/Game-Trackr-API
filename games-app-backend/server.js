@@ -8,11 +8,7 @@ const gamesRouter = require('./routes/games'); // Ajusta la ruta según tu estru
 const app = express();
 
 // Configurar CORS
-app.use(cors({
-  origin: 'http://localhost:5173', // Permitir solo este origen (ajusta según sea necesario)
-  methods: ['GET', 'POST', 'PUT'],
-  allowedHeaders: ['Content-Type'],
-}));
+app.use(cors({}));
 
 // Configura Multer para manejar la carga de archivos
 const upload = multer({
