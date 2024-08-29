@@ -112,4 +112,18 @@ router.post('/:id/upload', upload.single('file'), (req, res) => {
   }
 });
 
+// Actualizar el progreso de un juego por ID
+router.put('/:id/progress', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  const { progress } = req.body;
+
+  const gameIndex = games.findIndex(game => game.id === id);
+  if (gameIndex === -1) {
+    return res.status(404).json({ message: 'Game not found' });
+  }
+
+  games[gameIndex].progress = progress;
+  res.json(games[gameIndex]);
+});
+
 module.exports = router;
